@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./mvvm.js"></script>
+    <script src="./f.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="school.age" />
+      <div>{{school.name}} {{school.age}}</div>
+      <div>{{getNewName}}</div>
+      <h1>无关的内容</h1>
+      <button v-on:click="change">事件</button>
+      <div id="test1" v-html="message"></div>
+    </div>
+    <script>
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          school: {
+            name: "Vue-old",
+            age: 18
+          },
+          message: "<h1>Welcome</h1>"
+        },
+        computed: {
+          getNewName() {
+            return this.school.age + "架构";
+          }
+        },
+        methods: {
+          change() {
+            console.log("sign" + Math.random());
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
