@@ -9,6 +9,7 @@
   <body>
     <div id="app">
       <input type="text" v-model="school.age" />
+      <input type="text" v-model="school.name" />
       <div>{{school.name}} {{school.age}}</div>
       <div>{{getNewName}}</div>
       <h1>无关的内容</h1>
@@ -27,7 +28,7 @@
         },
         computed: {
           getNewName() {
-            return this.school.age + "架构";
+            return this.school.age + "架构" + this.school.name;
           }
         },
         methods: {
